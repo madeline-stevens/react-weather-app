@@ -141,3 +141,6 @@ const data = await api_call.json();
 22. Before I go any further I need to create a config folder to house my API key. I got carried away and needed to do that before my first commit. I know better.
 23. installing webpack-- npm install --save-dev webpack-dev-server
 24. Removed this above, now installing npm i webpack --save-dev AND npm i webpack-cli --save-dev
+25. running npm run dev and still getting this error:
+    The react-scripts package provided by Create React App requires a dependency:
+    [1][1] "webpack": "4.19.1"
