@@ -143,4 +143,7 @@ const data = await api_call.json();
 24. Removed this above, now installing npm i webpack --save-dev AND npm i webpack-cli --save-dev
 25. running npm run dev and still getting this error:
     The react-scripts package provided by Create React App requires a dependency:
-    [1][1] "webpack": "4.19.1"
+    [1][1] "webpack": "4.19.1" but ALSO that my nodemodules webpack version is higher than my package.json. I keep following the directions in terminal but continue to get this error so.....
+26. I'm going to try this suggestion also provided in the temrinal directions:
+    If prefer to ignore this check, add SKIP_PREFLIGHT_CHECK=true to an .env file in your project.
+    [1] That will permanently disable this message but you might encounter other issues.
