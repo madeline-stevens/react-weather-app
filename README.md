@@ -3,7 +3,8 @@
 1. npm init
 2. npm i express body-parser jsonwebtoken
 3. npm i -D nodemon
-4. Basic server setup
+4. npm i concurrently to be able to run server and client with- npm run dev
+5. Basic server setup
 
 ```js
 const express = require("express");
@@ -136,4 +137,6 @@ const data = await api_call.json();
   };
 ```
 
-21. Now to actually get that to show within the weather component
+21. Now to actually get that to show within the weather component by including this - {this.props.error && <p> {this.props.error} </p>}in weather.js in the list with the other conditions.
+22. Before I go any further I need to create a config folder to house my API key. I got carried away and needed to do that before my first commit. I know better.
+23. installing webpack-- npm install --save-dev webpack-dev-server

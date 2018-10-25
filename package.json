@@ -7,7 +7,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "webpack --env.API_URL=http://localhost:5000 --config webpack.config.dev.js",
+    "build": "webpack --env.API_URL=https://www.myapi.com --config webpack.config.build.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,13 @@
     "babel": "^6.23.0",
     "body-parser": "^1.18.3",
     "concurrently": "^3.5.1",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "webpack": "^4.23.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }
