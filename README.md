@@ -4,7 +4,6 @@
 
 1. With Concurrently I am able to type 'npm run dev" in terminal to start up the client side on localhost:3000 and the server side on localhost:5000.
 2. I am using the openweathermap API (https://openweathermap.org) to generate a free API key to store in my .env file that you will need to create too. Create your .env file at the root level of this project. Inside you'll type something like this- REACT_APP_API_KEY='< your key gets pasted here >'. Don't include the angle brackets.
-3.
 
 ### My steps:
 
