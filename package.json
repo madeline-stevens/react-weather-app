@@ -25,11 +25,10 @@
     "body-parser": "^1.18.3",
     "concurrently": "^3.5.1",
     "dotenv": "^6.1.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "npm-check": "^5.9.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4",
-    "webpack": "^4.23.1",
-    "webpack-cli": "^3.1.2"
+    "nodemon": "^1.18.4"
   }
 }
