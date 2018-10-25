@@ -1,7 +1,7 @@
 # react-weather-app
 
 1. npm init
-2. npm i express body-parser jsonwebtoken
+2. npm i express body-parser
 3. npm i -D nodemon
 4. npm i concurrently to be able to run server and client with- npm run dev
 5. Basic server setup
@@ -15,26 +15,12 @@ app.listen(port, () => console.log(`Server running on ${port}`));
 app.listen(port, () => console.log(`Server running on ${port}`));
 ```
 
-5. node server to test localhost:5000
 6. added package.json script for nodemon- "server": "nodemon server.js"
 7. Now the terminal script to start the server is just- npm run server
 8. npm i -g create-react-app
 9. create-react-app client
 10. Wed, 6:15pm-- Still having issues with my components not rendering, only server.js, moved on to work with API.
 11. working in app.js...doing things...adding things....
-12. Downloaded the city.list.json list of city ids to find the Seattle id. Might not need this!
-
-```js
-{
-    "id": 5809844,
-    "name": "Seattle",
-    "country": "US",
-    "coord": {
-      "lon": -122.332069,
-      "lat": 47.606209
-    }
-  },
-```
 
 Examples of API calls:
 
