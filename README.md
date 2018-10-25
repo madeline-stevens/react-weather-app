@@ -93,4 +93,47 @@ class App extends Component {
 
 17. Now i'll create state within the the App component in app.js.
 18. Wed, 8:45pm- Rendering data through state: < insert screenshot here >
-19.
+19. To ensure that when someone clicks on the search button WITHOUT entering a city the app doesn't break I added:
+
+```js
+if (city) {
+  console.log(data);
+  this.setState({
+    temperature: data.main.temp,
+    city: data.name,
+    country: data.sys.country,
+    humidity: data.main.humidity,
+    description: data.weather[0].description,
+    error: ""
+  });
+}
+```
+
+20. But it's also so important to include some feedback to the user with an human generated error message within App.js:
+
+```js
+const data = await api_call.json();
+    if (city) {
+      console.log(data);
+      this.setState({
+        temperature: data.main.temp,
+        city: data.name,
+        country: data.sys.country,
+        humidity: data.main.humidity,
+        description: data.weather[0].description,
+        error: ""
+      });
+    } else {
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: "Please enter a city in the search field"
+      });
+    }
+  };
+```
+
+21. Now to actually get that to show within the weather component
