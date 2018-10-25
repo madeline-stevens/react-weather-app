@@ -3,12 +3,10 @@ import React, { Component } from "react";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 
-const webpack = require("webpack");
+// const webpack = require("webpack");
 // const dotenv = require("dotenv");
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-
-// const API_KEY = "81f3fa01558dc858906fa944d5562c40";
 
 class App extends Component {
   state = {
