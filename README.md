@@ -1,7 +1,14 @@
 # react-weather-app
 
+## How to get started:
+
+1. With Concurrently I am able to type 'npm run dev" in terminal to start up the client side on localhost:3000 and the server side on localhost:5000.
+2. I am using the openweathermap API (https://openweathermap.org) to generate a free API key to store in my .env file that you will need to create too. Create your .env file at the root level of this project. Inside you'll type something like this- REACT_APP_API_KEY='< your key gets pasted here >'. Don't include the angle brackets.
+
+### My steps:
+
 1. npm init
-2. npm i express body-parser jsonwebtoken
+2. npm i express body-parser
 3. npm i -D nodemon
 4. npm i concurrently to be able to run server and client with- npm run dev
 5. Basic server setup
@@ -15,26 +22,12 @@ app.listen(port, () => console.log(`Server running on ${port}`));
 app.listen(port, () => console.log(`Server running on ${port}`));
 ```
 
-5. node server to test localhost:5000
 6. added package.json script for nodemon- "server": "nodemon server.js"
 7. Now the terminal script to start the server is just- npm run server
 8. npm i -g create-react-app
 9. create-react-app client
 10. Wed, 6:15pm-- Still having issues with my components not rendering, only server.js, moved on to work with API.
 11. working in app.js...doing things...adding things....
-12. Downloaded the city.list.json list of city ids to find the Seattle id. Might not need this!
-
-```js
-{
-    "id": 5809844,
-    "name": "Seattle",
-    "country": "US",
-    "coord": {
-      "lon": -122.332069,
-      "lat": 47.606209
-    }
-  },
-```
 
 Examples of API calls:
 
