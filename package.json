@@ -4,10 +4,11 @@
   "description": "A simple react weather forcast app, includes search bar for city/zip.",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "con": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "webpack --mode development ./src/index.js --output ./dist/main.js",
+    "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production"
   },
   "repository": {
@@ -29,6 +30,15 @@
     "npm-check": "^5.9.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "nodemon": "^1.18.4",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }

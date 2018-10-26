@@ -2,8 +2,8 @@
 
 ## How to get started:
 
-1. With Concurrently I am able to type 'npm run dev" in terminal to start up the client side on localhost:3000 and the server side on localhost:5000.
-2. I am using the openweathermap API (https://openweathermap.org) to generate a free API key to store in my .env file that you will need to create too. Create your .env file at the root level of this project. Inside you'll type something like this- REACT_APP_API_KEY='< your key gets pasted here >'. Don't include the angle brackets.
+1. With Concurrently I am able to type 'npm run dev" in terminal to start up the client side on localhost:3000 and the server side on localhost:5000. This will automatically open a browser tab at localhost:3000.
+2. I am using the openweathermap API (https://openweathermap.org) to generate a free API key to store in my .env file. You will need to create a .env file as well. Create your .env file at the root level of this project. Inside you'll type something like this- REACT_APP_API_KEY='< your key gets pasted here >'. Don't include the angle brackets.
 
 ### My steps:
 
@@ -102,7 +102,7 @@ if (city) {
 }
 ```
 
-20. But it's also so important to include some feedback to the user with an human generated error message within App.js:
+20. But it's also so important to include some feedback to the user with a human generated error message within App.js--> error: "Please enter a city in the search field":
 
 ```js
 const data = await api_call.json();
@@ -130,12 +130,71 @@ const data = await api_call.json();
 ```
 
 21. Now to actually get that to show within the weather component by including this - {this.props.error && <p> {this.props.error} </p>}in weather.js in the list with the other conditions.
-22. Before I go any further I need to create a config folder to house my API key. I got carried away and needed to do that before my first commit. I know better.
+22. Before I go any further I need to create a config folder to house my API key. I got carried away and needed to do that before my first commit. I've changed my key since those commits.
 23. installing webpack-- npm install --save-dev webpack-dev-server
 24. Removed this above, now installing npm i webpack --save-dev AND npm i webpack-cli --save-dev
 25. running npm run dev and still getting this error:
     The react-scripts package provided by Create React App requires a dependency:
     [1][1] "webpack": "4.19.1" but ALSO that my nodemodules webpack version is higher than my package.json. I keep following the directions in terminal but continue to get this error so.....
 26. I'm going to try this suggestion also provided in the temrinal directions:
-    If prefer to ignore this check, add SKIP_PREFLIGHT_CHECK=true to an .env file in your project.
+    If prefer to ignore this check, add SKIP_PREFLIGHT_CHECK=true to an .env file in your project. (Now, looking back, probably not needed.)
     [1] That will permanently disable this message but you might encounter other issues.
+27. I had to manually and specifically install version 4.19.1 of webpack, and that has solved many problems/errors I was getting in terminal.
+28. Now I'm reading all of this great tutorial on webpack 4- https://www.valentinog.com/blog/webpack-tutorial/
+29. I added the development and production scripts to package.json:
+
+```js
+scripts:
+"dev": "webpack --mode development",
+"build": "webpack --mode production"
+```
+
+After running 'npm run build' now getting this error message in terminal which apparently IS SUPPOSED TO HAPPEN YAY :) :
+
+ERROR in Entry module not found: Error: Can't resolve './src' in '/Users/maddys87/Documents/code_projects/react-weather-app'
+
+30. I'm about to install the latest version of webpack (npm i webpack --save-dev) which i'm assuming will cause the same problems as before, conflicting with something else I have.
+31. yay! getting the correct error message, same as before-
+    ERROR in Entry module not found: Error: Can't resolve './src' in '/Users/maddys87/Documents/code_projects/react-weather-app'
+
+32. On a whim i tried creating a src folder/index.js outside of client folder and it worked! Running npm run build created a dist folder and the main.js content inside it and it didn't error out! huzzah!
+33. The next step would be to add these additions to package.json.
+    "scripts": {
+    "dev": "webpack --mode development ./foo/src/js/index.js --output ./foo/main.js",
+    "build": "webpack --mode production ./foo/src/js/index.js --output ./foo/main.js"
+    }
+34. I'm a little concerned that I have two src folders. I may have to get rid of my client folder altogether. I'll ask friend and mentor, Eddie, about that.
+35. Added a .babelrc file and pasted this into it:
+    {
+    "presets": [
+    "@babel/preset-env"
+    ]
+    }
+
+36. creating webpack.config.js....turns out 0 config still means a config file. :)
+37. copied some scripts from my resource into the config file
+38. copied some JSX into my index.js file
+39. Running npm run build again to bundle.
+40. installed react-dom-- npm i react react-dom --save-dev
+41. I did NOT INSTALL the html webpack plugin-- npm i html-webpack-plugin html-loader --save-dev
+42. installing npm i webpack-dev-server --save-dev. Becuase running 'npm run dev' whenever you make changes to your code? Far from ideal.
+43. And changes scripts in package.json from this:
+
+"scripts": {
+"start": "node server.js",
+"server": "nodemon server.js",
+"client": "npm start --prefix client",
+"con": "concurrently \"npm run server\" \"npm run client\"",
+"dev": "webpack --mode development ./src/index.js --output ./dist/main.js",
+"build": "webpack --mode production ./src/index.js --output ./dist/main.js"
+},
+
+To adjusting to this:
+"start": "webpack-dev-server --mode development --open",
+"build": "webpack --mode production"
+
+### Resources:
+
+1. Webpack4 walk through-- https://www.valentinog.com/blog/webpack-tutorial/
+2. This youtube tutorial-- https://www.youtube.com/watch?v=204C9yNeOYI
+3. This react weather app for inspiration-- https://github.com/pixelsinprogress/weather-app-2/tree/master/react-ui
