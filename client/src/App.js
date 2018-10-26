@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 
+// require("dotenv").config();
+
 // const webpack = require("webpack");
 // const dotenv = require("dotenv");
 
