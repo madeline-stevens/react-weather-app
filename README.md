@@ -193,7 +193,8 @@ To adjusting to this:
 "build": "webpack --mode production"
 
 44. installing npm i @babel/plugin-proposal-class-properties
-45. Gavin to the rescue!!! npm run eject-- this reveals the config files CRA has been hiding for you!!!!
+45. After talking with Gavin it sounds like I don't need a config file to help support my .env file, despite being adivsed to do that by others. So, this is good news. So I'm going to checkout a new branch, revert to my PRE-webpack code and console.log my api key.
+46. commit message- After introducing a complete from scratch webpack the npm runstart script does launch localhost:8080 but the site can't be reached which is not surprising so i'm going to push and create a new branch so I can revert to a previous commit.
 
 ### Resources:
 
