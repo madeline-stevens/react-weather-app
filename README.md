@@ -2,8 +2,7 @@
 
 ## How to get started:
 
-1. With Concurrently I am able to type 'npm run dev" in terminal to start up the client side on localhost:3000 and the server side on localhost:5000. This will automatically open a browser tab at localhost:3000.
-2. I am using the openweathermap API (https://openweathermap.org) to generate a free API key to store in my .env file. You will need to create a .env file as well. Create your .env file at the root level of this project. Inside you'll type something like this- REACT_APP_API_KEY='< your key gets pasted here >'. Don't include the angle brackets.
+1. I am using the openweathermap API (https://openweathermap.org) to generate a free API key to store in my .env file. You will need to create a .env file as well. Create your .env file at the root level of this project. Inside you'll type something like this- REACT_APP_API_KEY='< your key gets pasted here >'. Don't include the angle brackets.
 
 ### My steps:
 
@@ -192,6 +191,9 @@ ERROR in Entry module not found: Error: Can't resolve './src' in '/Users/maddys8
 To adjusting to this:
 "start": "webpack-dev-server --mode development --open",
 "build": "webpack --mode production"
+
+44. installing npm i @babel/plugin-proposal-class-properties
+45. Gavin to the rescue!!! npm run eject-- this reveals the config files CRA has been hiding for you!!!!
 
 ### Resources:
 
