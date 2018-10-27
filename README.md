@@ -2,8 +2,7 @@
 
 ## How to get started:
 
-1. With Concurrently I am able to type 'npm run dev" in terminal to start up the client side on localhost:3000 and the server side on localhost:5000. This will automatically open a browser tab at localhost:3000.
-2. I am using the openweathermap API (https://openweathermap.org) to generate a free API key to store in my .env file. You will need to create a .env file as well. Create your .env file at the root level of this project. Inside you'll type something like this- REACT_APP_API_KEY='< your key gets pasted here >'. Don't include the angle brackets.
+1. I am using the openweathermap API (https://openweathermap.org) to generate a free API key to store in my .env file. You will need to create a .env file as well. Create your .env file at the root level of this project. Inside you'll type something like this- REACT_APP_API_KEY='< your key gets pasted here >'. Don't include the angle brackets.
 
 ### My steps:
 
@@ -192,6 +191,10 @@ ERROR in Entry module not found: Error: Can't resolve './src' in '/Users/maddys8
 To adjusting to this:
 "start": "webpack-dev-server --mode development --open",
 "build": "webpack --mode production"
+
+44. installing npm i @babel/plugin-proposal-class-properties
+45. After talking with Gavin it sounds like I don't need a config file to help support my .env file, despite being adivsed to do that by others. So, this is good news. So I'm going to checkout a new branch, revert to my PRE-webpack code and console.log my api key.
+46. commit message- After introducing a complete from scratch webpack the npm runstart script does launch localhost:8080 but the site can't be reached which is not surprising so i'm going to push and create a new branch so I can revert to a previous commit.
 
 ### Resources:
 
