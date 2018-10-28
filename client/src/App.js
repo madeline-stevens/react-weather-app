@@ -2,8 +2,9 @@ import React, { Component } from "react";
 
 import Form from "./components/Form";
 import Weather from "./components/Weather";
-
-const API_KEY = "bfc4500a2d6db4462a19e5217eadfda8";
+import dotenv from "dotenv";
+dotenv.config();
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends Component {
   state = {
@@ -16,10 +17,21 @@ class App extends Component {
   };
   weatherAPIcall = async e => {
     e.preventDefault();
+    console.log("CURRENT STATE : ", this.state);
     const city = e.target.elements.city.value;
     const api_call = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
-    );
+    ).catch(error => {
+      console.log("Error : ", error.message);
+    });
+
+    console.log(api_call);
+
+    if (!api_call) {
+      return;
+    }
+
+    console.log("API_CALL", api_call);
 
     const data = await api_call.json();
     console.log(data);
@@ -34,6 +46,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(API_KEY);
     return (
       <div className="App">
         <Form weatherAPIcall={this.weatherAPIcall} />

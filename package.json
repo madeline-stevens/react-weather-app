@@ -23,7 +23,8 @@
     "babel": "^6.23.0",
     "body-parser": "^1.18.3",
     "concurrently": "^3.5.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "react-dev-utils": "^6.0.5"
   },
   "devDependencies": {
     "nodemon": "^1.18.4"
