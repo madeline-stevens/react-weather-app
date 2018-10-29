@@ -94,3 +94,5 @@ class App extends Component {
 17. Now i'll create state within the the App component in app.js.
 18. Wed, 8:45pm- Rendering data through state: < insert screenshot here >
 19.
+
+#Resources
