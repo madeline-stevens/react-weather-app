@@ -25,14 +25,6 @@ class App extends Component {
       console.log("Error : ", error.message);
     });
 
-    console.log(api_call);
-
-    if (!api_call) {
-      return;
-    }
-
-    console.log("API_CALL", api_call);
-
     const data = await api_call.json();
     console.log(data);
     this.setState({
@@ -46,7 +38,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(API_KEY);
     return (
       <div className="App">
         <Form weatherAPIcall={this.weatherAPIcall} />
@@ -60,6 +51,8 @@ class App extends Component {
         />
       </div>
     );
+
+    //five day forcast
   }
 }
 
