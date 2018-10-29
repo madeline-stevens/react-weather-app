@@ -8,7 +8,9 @@ class Forecast extends Component {
           this.props.temp_max && <h1>Five Day Forecast</h1>}
         {this.props.temp_min && <p> min-temp: {this.props.temp_min}</p>}
         {this.props.temp_max && <p> max-temp: {this.props.temp_max}</p>}
-        {this.props.descriptionTwo && <p> weather: {this.props.description}</p>}
+        {this.props.description && (
+          <p> forcasted weather: {this.props.description}</p>
+        )}
       </div>
     );
   }

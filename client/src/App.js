@@ -41,7 +41,7 @@ class App extends Component {
     const data = await temp_call.json();
     console.log(data);
     this.setState({
-      temperature: data.main.temperature,
+      temperature: data.main.temp,
       city: data.name,
       country: data.sys.country,
       humidity: data.main.humidity,
@@ -75,7 +75,7 @@ class App extends Component {
         <Forecast
           temp_min={this.state.temp_min}
           temp_max={this.state.temp_max}
-          descriptionTwo={this.state.description}
+          descriptionTwo={this.state.descriptionTwo}
         />
       </div>
     );
