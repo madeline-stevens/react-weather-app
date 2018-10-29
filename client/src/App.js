@@ -44,7 +44,7 @@ class App extends Component {
       temperature: data.main.temp,
       city: data.name,
       country: data.sys.country,
-      humidity: data.main.humidity,
+      humidityTwo: data.main.humidity,
       description: data.weather[0].description,
       error: ""
     });
@@ -55,7 +55,7 @@ class App extends Component {
     this.setState({
       temp_min: fiveDayData.list[0].main.temp_min,
       temp_max: fiveDayData.list[0].main.temp_max,
-      descriptionTwo: fiveDayData.list[0].weather.description,
+      descriptionTwo: fiveDayData.list[0].weather[0].description,
       error: ""
     });
   };
@@ -68,7 +68,7 @@ class App extends Component {
           temperature={this.state.temperature}
           city={this.state.city}
           country={this.state.country}
-          humidity={this.state.humidity}
+          humidityTwo={this.state.humidityTwo}
           description={this.state.description}
           error={this.state.error}
         />
