@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Form from "./components/Form";
-import Weather from "./components/Weather";
+// import Weather from "./components/Weather";
 import Forecast from "./components/Forecast";
 
 import dotenv from "dotenv";
@@ -15,7 +15,8 @@ class App extends Component {
     country: undefined,
     humidity: undefined,
     description: undefined,
-    error: undefined
+    error: undefined,
+    temp_min: undefined
   };
 
   weatherAPIcall = async e => {
@@ -23,60 +24,56 @@ class App extends Component {
     console.log("CURRENT STATE : ", this.state);
     const city = e.target.elements.city.value;
 
-    const temp_call = await fetch(
-      // `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+    // const temp_call = await fetch().catch(error => {
+    // `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+    // `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
+    //   console.log("Error : ", error.message);
+    // });
+
+    const fiveDay_call = await fetch(
       `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
     ).catch(error => {
       console.log("Error : ", error.message);
     });
 
-    // const fiveDay_call = await fetch(
-    // `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
-
-    // ).catch(error => {
-    //   console.log("Error : ", error.message);
+    // const data = await temp_call.json();
+    // console.log(data);
+    // this.setState({
+    // temperature: data.main.temperature,
+    // city: data.name,
+    // country: data.sys.country,
+    // humidity: data.main.humidity,
+    // description: data.weather[0].description,
+    // error: ""
     // });
 
-    const data = await temp_call.json();
-    console.log(data);
+    // five day forecast list
+    const fiveDayData = await fiveDay_call.json();
+    console.log("five day data:", fiveDayData);
     this.setState({
-      // temperature: data.main.temperature,
-      // temp_min: data.main.temp_min,
-
-      city: data.name,
-      // country: data.sys.country,
-      // humidity: data.main.humidity,
-      // description: data.weather[0].description,
+      temp_min: fiveDayData.list[0].main.temp_min,
+      temp_max: fiveDayData.list[0].main.temp_max,
+      // description: fiveDayData.list.weather.description,
       error: ""
     });
-
-    // five day forecast
-    // const fiveDayData = await fiveDay_call.json();
-    // console.log(fiveDayData);
-    // this.setState({
-    //   temp_min: fiveDayData.main.temp_min,
-    //   temp_max: fiveDayData.main.temp_max,
-    //   description: fiveDayData.weather[0].description,
-    //   error: ""
-    // });
   };
 
   render() {
     return (
       <div className="App">
         <Form weatherAPIcall={this.weatherAPIcall} />
-        <Weather
+        {/* <Weather
           temperature={this.state.temperature}
           city={this.state.city}
           country={this.state.country}
           humidity={this.state.humidity}
           description={this.state.description}
           error={this.state.error}
-        />
+        /> */}
         <Forecast
-          temp_min={this.props.temp_min}
-          temp_max={this.props.temp_max}
-          description={this.props.description}
+          temp_min={this.state.temp_min}
+          temp_max={this.state.temp_max}
+          // description={this.state.description}
         />
       </div>
     );
