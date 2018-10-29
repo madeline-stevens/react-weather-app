@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Form from "./components/Form";
-// import Weather from "./components/Weather";
+import Weather from "./components/Weather";
 import Forecast from "./components/Forecast";
 
 import dotenv from "dotenv";
@@ -24,11 +24,11 @@ class App extends Component {
     console.log("CURRENT STATE : ", this.state);
     const city = e.target.elements.city.value;
 
-    // const temp_call = await fetch().catch(error => {
-    // `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
-    // `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
-    //   console.log("Error : ", error.message);
-    // });
+    const temp_call = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+    ).catch(error => {
+      console.log("Error : ", error.message);
+    });
 
     const fiveDay_call = await fetch(
       `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
@@ -36,16 +36,17 @@ class App extends Component {
       console.log("Error : ", error.message);
     });
 
-    // const data = await temp_call.json();
-    // console.log(data);
-    // this.setState({
-    // temperature: data.main.temperature,
-    // city: data.name,
-    // country: data.sys.country,
-    // humidity: data.main.humidity,
-    // description: data.weather[0].description,
-    // error: ""
-    // });
+    //current temp
+    const data = await temp_call.json();
+    console.log(data);
+    this.setState({
+      temperature: data.main.temperature,
+      city: data.name,
+      country: data.sys.country,
+      humidity: data.main.humidity,
+      description: data.weather[0].description,
+      error: ""
+    });
 
     // five day forecast list
     const fiveDayData = await fiveDay_call.json();
@@ -62,14 +63,14 @@ class App extends Component {
     return (
       <div className="App">
         <Form weatherAPIcall={this.weatherAPIcall} />
-        {/* <Weather
+        <Weather
           temperature={this.state.temperature}
           city={this.state.city}
           country={this.state.country}
           humidity={this.state.humidity}
           description={this.state.description}
           error={this.state.error}
-        /> */}
+        />
         <Forecast
           temp_min={this.state.temp_min}
           temp_max={this.state.temp_max}
