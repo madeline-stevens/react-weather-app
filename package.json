@@ -24,6 +24,7 @@
     "body-parser": "^1.18.3",
     "concurrently": "^3.5.1",
     "express": "^4.16.4",
+    "kelvin-to-fahrenheit": "^1.1.0",
     "react-dev-utils": "^6.0.5"
   },
   "devDependencies": {

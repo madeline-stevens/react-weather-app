@@ -17,7 +17,8 @@ class App extends Component {
     description: undefined,
     error: undefined,
     temp_min: undefined,
-    descriptionTwo: undefined
+    descriptionTwo: undefined,
+    date: undefined
   };
 
   weatherAPIcall = async e => {
@@ -26,13 +27,13 @@ class App extends Component {
     const city = e.target.elements.city.value;
 
     const temp_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`
     ).catch(error => {
       console.log("Error : ", error.message);
     });
 
     const fiveDay_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
+      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${API_KEY}`
     ).catch(error => {
       console.log("Error : ", error.message);
     });
@@ -44,7 +45,7 @@ class App extends Component {
       temperature: data.main.temp,
       city: data.name,
       country: data.sys.country,
-      humidityTwo: data.main.humidity,
+      humidity: data.main.humidity,
       description: data.weather[0].description,
       error: ""
     });
@@ -53,6 +54,7 @@ class App extends Component {
     const fiveDayData = await fiveDay_call.json();
     console.log("five day data:", fiveDayData);
     this.setState({
+      dt_txt: fiveDayData.list[0].dt_txt,
       temp_min: fiveDayData.list[0].main.temp_min,
       temp_max: fiveDayData.list[0].main.temp_max,
       descriptionTwo: fiveDayData.list[0].weather[0].description,
@@ -68,11 +70,12 @@ class App extends Component {
           temperature={this.state.temperature}
           city={this.state.city}
           country={this.state.country}
-          humidityTwo={this.state.humidityTwo}
+          humidity={this.state.humidity}
           description={this.state.description}
           error={this.state.error}
         />
         <Forecast
+          dt_txt={this.state.dt_txt}
           temp_min={this.state.temp_min}
           temp_max={this.state.temp_max}
           descriptionTwo={this.state.descriptionTwo}
