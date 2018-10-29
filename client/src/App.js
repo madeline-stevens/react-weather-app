@@ -16,7 +16,8 @@ class App extends Component {
     humidity: undefined,
     description: undefined,
     error: undefined,
-    temp_min: undefined
+    temp_min: undefined,
+    descriptionTwo: undefined
   };
 
   weatherAPIcall = async e => {
@@ -54,7 +55,7 @@ class App extends Component {
     this.setState({
       temp_min: fiveDayData.list[0].main.temp_min,
       temp_max: fiveDayData.list[0].main.temp_max,
-      // description: fiveDayData.list.weather.description,
+      descriptionTwo: fiveDayData.list[0].weather.description,
       error: ""
     });
   };
@@ -74,7 +75,7 @@ class App extends Component {
         <Forecast
           temp_min={this.state.temp_min}
           temp_max={this.state.temp_max}
-          // description={this.state.description}
+          descriptionTwo={this.state.description}
         />
       </div>
     );
