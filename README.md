@@ -44,11 +44,11 @@ https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e
 ````js
 class App extends Component {
   weatherAPIcall = async () => {
-    const api_call = await fetch(
+    const temp_call = await fetch(
       `https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_KEY}`
     );
 
-    const data = await api_call.json();
+    const data = await temp_call.json();
 
     ```
 ````
@@ -87,7 +87,7 @@ class App extends Component {
   weatherAPIcall = async e => {
     e.preventDefault();
     const city = e.target.elements.city.value;
-    const api_call = await fetch(
+    const temp_call = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
 ```
 
