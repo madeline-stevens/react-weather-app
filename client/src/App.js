@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Title from "./components/Title";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 import Forecast from "./components/Forecast";
@@ -16,7 +17,9 @@ class App extends Component {
     humidity: undefined,
     description: undefined,
     error: undefined,
-    temp_min: undefined
+    temp_min: undefined,
+    descriptionTwo: undefined,
+    date: undefined
   };
 
   weatherAPIcall = async e => {
@@ -25,13 +28,13 @@ class App extends Component {
     const city = e.target.elements.city.value;
 
     const temp_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`
     ).catch(error => {
       console.log("Error : ", error.message);
     });
 
     const fiveDay_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
+      `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${API_KEY}`
     ).catch(error => {
       console.log("Error : ", error.message);
     });
@@ -40,7 +43,7 @@ class App extends Component {
     const data = await temp_call.json();
     console.log(data);
     this.setState({
-      temperature: data.main.temperature,
+      temperature: data.main.temp,
       city: data.name,
       country: data.sys.country,
       humidity: data.main.humidity,
@@ -52,9 +55,10 @@ class App extends Component {
     const fiveDayData = await fiveDay_call.json();
     console.log("five day data:", fiveDayData);
     this.setState({
+      dt_txt: fiveDayData.list[0].dt_txt,
       temp_min: fiveDayData.list[0].main.temp_min,
       temp_max: fiveDayData.list[0].main.temp_max,
-      // description: fiveDayData.list.weather.description,
+      descriptionTwo: fiveDayData.list[0].weather[0].description,
       error: ""
     });
   };
@@ -62,6 +66,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Title />
         <Form weatherAPIcall={this.weatherAPIcall} />
         <Weather
           temperature={this.state.temperature}
@@ -72,9 +77,10 @@ class App extends Component {
           error={this.state.error}
         />
         <Forecast
+          dt_txt={this.state.dt_txt}
           temp_min={this.state.temp_min}
           temp_max={this.state.temp_max}
-          // description={this.state.description}
+          descriptionTwo={this.state.descriptionTwo}
         />
       </div>
     );

@@ -18,6 +18,7 @@ const paths = require("./paths");
 const getClientEnvironment = require("./env");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const { DefinePlugin } = webpack;
+const kelvinToFahrenheit = require("kelvin-to-fahrenheit");
 
 require("dotenv").config();
 

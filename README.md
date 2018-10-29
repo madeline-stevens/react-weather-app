@@ -97,4 +97,5 @@ class App extends Component {
 
 #Resources
 
-1.
+1. React tutorial: https://www.youtube.com/watch?v=204C9yNeOYI
+2.

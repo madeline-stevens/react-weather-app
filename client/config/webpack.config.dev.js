@@ -14,6 +14,7 @@ const paths = require("./paths");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const ModuleNotFoundPlugin = require("react-dev-utils/ModuleNotFoundPlugin");
 const { DefinePlugin, EnvironmentPlugin } = webpack;
+const kelvinToFahrenheit = require("kelvin-to-fahrenheit");
 
 require("dotenv").config();
 
