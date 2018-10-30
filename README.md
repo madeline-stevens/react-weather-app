@@ -32,4 +32,5 @@ This React app allows you to search for current weather by city or zipcode. I us
 # Resources
 
 1. React tutorial: https://www.youtube.com/watch?v=204C9yNeOYI
-2. Friends/mentors: Eddie, Gavin, Michelle, Don, Google
+2. OpenWeatherMap's API- https://openweathermap.org
+3. Friends/mentors: Eddie, Gavin, Michelle, Don, Google
