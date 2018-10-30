@@ -4,8 +4,8 @@ class Weather extends Component {
   render() {
     return (
       <div>
-        {this.props.city && <p>city: {this.props.city}</p>}
-        {this.props.country && <p>country: {this.props.country}</p>}
+        {this.props.city && <p> {this.props.city}</p>}
+        {this.props.country && <p> {this.props.country}</p>}
         {this.props.temperature && (
           <p>
             current temp: {this.props.temperature}
@@ -14,11 +14,13 @@ class Weather extends Component {
         )}
         {this.props.humidity && (
           <p>
-            humidity: {this.props.humidity}
-            &#37;
+            {this.props.humidity}
+            &#37; humidity
           </p>
         )}
-        {this.props.description && <p>description: {this.props.description}</p>}
+        {this.props.description && (
+          <p>current weather: {this.props.description}</p>
+        )}
       </div>
     );
   }

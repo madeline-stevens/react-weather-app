@@ -1,59 +1,35 @@
 # react-weather-app
 
-My steps:
+# To get started:
 
-1. npm init
-2. npm i -g create-react-app
-3. create-react-app client
-4. working in app.js...doing things...adding things....
+1. Terminal 1-
+   npm install
+   npm run client
 
-12) Making call to API, hopefully getting data but then what do I do with that data, how do I call that weatherAPIcall function? Now I need PROPS.
+2. Terminal 2 (not necessary until server.js is functional)-
+   ~./cd server
+   npm install
+   npm run start
 
-````js
-class App extends Component {
-  weatherAPIcall = async () => {
-    const temp_call = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`
+3. Create .env file within client folder that includes:
+   REACT_APP_API_KEY='personal api key'
 
-    );
+# To do:
 
-    const data = await temp_call.json();
+[x] Use Create React App to set up initial scaffolding.
+[x] Search functionality by zipcode and city, returning current weather data(city, country, current temp, humidity, weather conditions).
+[x] Hardcoded rendering of the first index of five day forecast array (meant to be a placeholder).
+[x] Write function in App.js that breaks the accumulated five day/three hour segments array (39) into just the five days. Currently this is commented out, but if uncommented, will console.log the five day chunks.
+[] That 'segregating of the days functionality' will allow us to manipulate, and render to the dom the five day forecast.
+[] Finish server.js, currently it is not affecting the client side, but I would like this proxy server to be able to get data from the client side, manipulate it, send it back.
+[] Once my server.js is functional, I need to get my .env file out of the client side.
+[] Convert the date to a day of the week with .getDay().
+[] Restrict to US only.
+[] Get rid of unnecessary config files within scripts folder. (These were revealed after ejecting from CRA, becuase I thought I needed to eject in order to manipulate them if need be. Turns out I didn't.)
 
-    ```
-````
-
-13. I need to make sure the weatherAPIcall function gets called when the user clicks on the Search button.
-14. I was getting a CORS error in chrome and all clues seemed to point to something being wrong with how i was fetching from the API with the sample API call I was using. I changed the url to this:
-    `http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_KEY}`
-
-15. And now i'm getting an object of data:
-
-```js
-{coord: {…}, weather: Array(2), base: "stations", main: {…}, visibility: 4828, …}
-base: "stations"
-clouds: {all: 90}
-cod: 200
-coord: {lon: -96.8, lat: 32.78}
-dt: 1540436100
-id: 4684888
-main: {temp: 284.86, pressure: 1017, humidity: 100, temp_min: 284.15, temp_max: 285.15}
-name: "Dallas"
-sys: {type: 1, id: 2592, message: 0.0044, country: "US", sunrise: 1540471154, …}
-visibility: 4828
-weather: Array(2)
-0: {id: 501, main: "Rain", description: "moderate rain", icon: "10n"}
-1: {id: 701, main: "Mist", description: "mist", icon: "50n"}
-length: 2
-__proto__: Array(0)
-wind: {speed: 4.1, deg: 100, gust: 8.2}
-__proto__: Object
-```
-
-17. Now i'll create state within the the App component in app.js.
-18. Wed, 8:45pm- Rendering data through state
-19.
+![alt text](/Users/maddys87/Documents/code_projects/sterile_env/react-weather-app/client/public/img/Screen Shot 2018-10-29 at 11.31.20 PM.jpeg "Screenshot of current state of project")
 
 #Resources
 
 1. React tutorial: https://www.youtube.com/watch?v=204C9yNeOYI
-2.
+2. Friends/mentors: Eddie, Gavin, Michelle, Don, Google
