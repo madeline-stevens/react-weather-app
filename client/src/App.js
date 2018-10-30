@@ -54,6 +54,14 @@ class App extends Component {
     // five day forecast list
     const fiveDayData = await fiveDay_call.json();
     console.log("five day data:", fiveDayData);
+
+    // fiveDayData.list.map((data, index) => {
+    //   return data.dt_txt.split(" ")[0] ===
+    //     fiveDayData.list[index + 1].dt_txt.split(" ")[0]
+    //     ? console.log("same day", data)
+    //     : console.log("not same day");
+    // });
+
     this.setState({
       dt_txt: fiveDayData.list[0].dt_txt,
       temp_min: fiveDayData.list[0].main.temp_min,
