@@ -29,7 +29,7 @@
 
 ![alt text](/Users/maddys87/Documents/code_projects/sterile_env/react-weather-app/client/public/img/Screen Shot 2018-10-29 at 11.31.20 PM.jpeg "Screenshot of current state of project")
 
-#Resources
+# Resources
 
 1. React tutorial: https://www.youtube.com/watch?v=204C9yNeOYI
 2. Friends/mentors: Eddie, Gavin, Michelle, Don, Google
