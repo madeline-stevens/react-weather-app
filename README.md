@@ -1,51 +1,20 @@
 # react-weather-app
 
+My steps:
+
 1. npm init
-2. npm i express body-parser jsonwebtoken
-3. npm i -D nodemon
-4. Basic server setup
+2. npm i -g create-react-app
+3. create-react-app client
+4. working in app.js...doing things...adding things....
 
-```js
-const express = require("express");
-const app = express();
-app.get("/", (req, res) => res.send("hello"));
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server running on ${port}`));
-app.listen(port, () => console.log(`Server running on ${port}`));
-```
-
-5. node server to test localhost:5000
-6. added package.json script for nodemon- "server": "nodemon server.js"
-7. Now the terminal script to start the server is just- npm run server
-8. npm i -g create-react-app
-9. create-react-app client
-10. Wed, 6:15pm-- Still having issues with my components not rendering, only server.js, moved on to work with API.
-11. working in app.js...doing things...adding things....
-12. Downloaded the city.list.json list of city ids to find the Seattle id. Might not need this!
-
-```js
-{
-    "id": 5809844,
-    "name": "Seattle",
-    "country": "US",
-    "coord": {
-      "lon": -122.332069,
-      "lat": 47.606209
-    }
-  },
-```
-
-Examples of API calls:
-
-https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22
-
-12. Making call to API, hopefully getting data but then what do I do with that data, how do I call that weatherAPIcall function? Now I need PROPS.
+12) Making call to API, hopefully getting data but then what do I do with that data, how do I call that weatherAPIcall function? Now I need PROPS.
 
 ````js
 class App extends Component {
   weatherAPIcall = async () => {
     const temp_call = await fetch(
-      `https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_KEY}`
+    `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_KEY}`
+
     );
 
     const data = await temp_call.json();
@@ -80,19 +49,8 @@ wind: {speed: 4.1, deg: 100, gust: 8.2}
 __proto__: Object
 ```
 
-16. Now i'll change the hardcoded sample location of london to dynamic values in app.js:
-
-```js
-class App extends Component {
-  weatherAPIcall = async e => {
-    e.preventDefault();
-    const city = e.target.elements.city.value;
-    const temp_call = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
-```
-
 17. Now i'll create state within the the App component in app.js.
-18. Wed, 8:45pm- Rendering data through state: < insert screenshot here >
+18. Wed, 8:45pm- Rendering data through state
 19.
 
 #Resources
