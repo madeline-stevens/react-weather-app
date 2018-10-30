@@ -2,16 +2,16 @@
 
 # To get started:
 
-1. Terminal 1-
-   npm install
+1. Terminal 1-  
+   npm install  
    npm run client
 
-2. Terminal 2 (not necessary until server.js is functional)-
-   ~./cd server
-   npm install
+2. Terminal 2 (not necessary until server.js is functional)-  
+   ~./cd server  
+   npm install  
    npm run start
 
-3. Create .env file within client folder that includes:
+3. Create .env file within client folder that includes:  
    REACT_APP_API_KEY='personal api key'
 
 # To do:
