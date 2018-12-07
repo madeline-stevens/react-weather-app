@@ -1,4 +1,4 @@
-# react-weather-app
+# react-weather-app (rough draft)
 
 This React app allows you to search for current weather by city or zipcode. I used OpenWeatherMap's API for weather data.
 
